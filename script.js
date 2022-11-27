@@ -24,7 +24,7 @@ function generatePassword(){
 
 
   for (var i = 0; i < charSet.length; i++) { 
-    if (charSet[i] != "L" && charSet[i] != "U" && charSet[i] != "N" && charSet[i] != "S"){ // add commas, and spaces?  ALSO TO LOWER
+    if (charSet[i] != "L" && charSet[i] != "U" && charSet[i] != "N" && charSet[i] != "S"){ // add commas, and spaces?  ALSO TO LOWER prob
       charSetValidated = false;
     } else if (charSet[i] == "L"){
       var typeLower = true;
