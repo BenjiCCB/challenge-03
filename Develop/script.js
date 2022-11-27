@@ -15,8 +15,8 @@ function generatePassword(){
   if (charLengthValidated){
     var charSet = window.prompt("Please enter desired character sets, including lowercase(L), uppercase(U), numeric(N), and special(S)")
   }
-  var charSetValidated = true;
-  var charSetArray;
+  var charSetValidated;
+  var charSetArray = [];
   var typeLower = false;
   var typeUpper = false;
   var typeNumeric = false;
@@ -37,27 +37,46 @@ function generatePassword(){
     }
   }
   if(charSetValidated == false){
-    window.alert("Invalid type input. Please try again")  
+    window.alert("Invalid type input. Please try again, using only 'L', 'U', 'N', and/or 'S'")  
   } else{
       window.alert("Thanks for your input. See password below.")  
     // create password
+
+    // // create available charcter array using ASCII codes... https://www.ascii-code.com
     if (typeLower){
       for (var i = 97; i <= 122; i++) { 
-      charSetArray.push(String.fromCharCode(i));
+        charSetArray.push(String.fromCharCode(i));
       }
     }
+    if (typeUpper){
+      for (var i = 65; i <= 90; i++) { 
+        charSetArray.push(String.fromCharCode(i));
+      }
+    }
+    if (typeNumeric){
+      for (var i = 48; i <= 57; i++) { 
+        charSetArray.push(String.fromCharCode(i));
+      }
+    }
+    if (typeSpecial){ // add second set
+      for (var i = 33; i <= 47; i++) { 
+        charSetArray.push(String.fromCharCode(i));
+      }
+    }
+    
+    console.log(charSetArray);
 
-    // Special… 33-47 (+58-64)
-    // Numeric… 48-57
-    // Upper… 65-90
-    // Lower… 97-122
+
+    // // create password from array
+    var finalPW = [];
+    for (var i = 0; i < charLength; i++) { 
+      var arrayIndex = Math.floor(Math.random() * charSetArray.length)
+      finalPW.push(charSetArray[arrayIndex]);
+    }
+    finalPW = finalPW.join('')
   }
-    return "wahoo"
+    return finalPW;
 }
-
-  // console.log(String.fromCharCode(189, 43, 190, 61));
-  // https://www.ascii-code.com/
-
 
   
 // Get references to the #generate element
