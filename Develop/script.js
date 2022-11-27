@@ -1,10 +1,10 @@
-// Assignment code here
+// Password Generator
 
 function generatePassword(){
   var charLength = window.prompt("Please enter a desired character length between 8 and 128 characters")
   var charLengthValidated;
 
-  // validate charLength -- how do I do TypeOf to validate numeric?
+  // validate charLength -- need to add TypeOf to validate numeric...
   if (charLength <= 8 || charLength >= 128){
     window.alert("Invalid length input.  Please try again")  
   } else {
@@ -12,11 +12,11 @@ function generatePassword(){
   }
 
   // validate charSet
-
   if (charLengthValidated){
     var charSet = window.prompt("Please enter desired character sets, including lowercase(L), uppercase(U), numeric(N), and special(S)")
   }
   var charSetValidated = true;
+  var charSetArray;
   var typeLower = false;
   var typeUpper = false;
   var typeNumeric = false;
@@ -41,6 +41,11 @@ function generatePassword(){
   } else{
       window.alert("Thanks for your input. See password below.")  
     // create password
+    if (typeLower){
+      for (var i = 97; i <= 122; i++) { 
+      charSetArray.push(String.fromCharCode(i));
+      }
+    }
 
     // Special… 33-47 (+58-64)
     // Numeric… 48-57
