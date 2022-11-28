@@ -38,7 +38,8 @@ function generatePassword(){
       }
     }
     if(charSetValidated == false){
-      window.alert("Invalid type input. Please try again, using only 'L', 'U', 'N', and/or 'S'")  
+      window.alert("Invalid type input. Please try again, using only 'L', 'U', 'N', and/or 'S'");
+      return "";
     } else{
         window.alert("Thanks for your input. See password below.")  
       // create password
