@@ -4,7 +4,7 @@ function generatePassword(){
   var charLength = window.prompt("Please enter a desired character length between 8 and 128 characters")
   var charLengthValidated;
 
-  // validate charLength -- need to add TypeOf to validate numeric...
+  // validate charLength
   if (charLength >= 8 && charLength <= 128){
     charLengthValidated = true;
   } else {
